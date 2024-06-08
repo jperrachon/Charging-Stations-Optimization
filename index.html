@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Truck Charging Stations Optimization</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        main {
+            padding: 2em;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        #graph {
+            width: 100%;
+            height: 600px;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.21.0/cytoscape.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Electric Truck Charging Stations Optimization</h1>
+    </header>
+    <main>
+        <div class="form-group">
+            <label for="cities">Cities (comma-separated):</label>
+            <input type="text" id="cities" placeholder="A,B,C,D,E">
+        </div>
+        <div class="form-group">
+            <label for="distances">Distances (city1,city2,distance,packages per line):</label>
+            <textarea id="distances" rows="5" placeholder="A,B,100,10&#10;A,C,200,15&#10;..."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="chargers">Number of Chargers:</label>
+            <input type="number" id="chargers" min="1" value="2">
+        </div>
+        <button onclick="solve()">Solve</button>
+        <div id="result"></div>
+        <div id="graph"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
