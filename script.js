@@ -41,7 +41,8 @@ function findBestCitiesForChargers(cities, distances, numChargers) {
     const graph = buildGraph(cities, distances);
     let bestCities = [];
     let maxPackages = 0;
-    
+    let bestConnectedCities = {};
+
     function calculatePackages(connectedCities) {
         let totalPackages = 0;
         distances.forEach(({ city1, city2, packages }) => {
@@ -51,7 +52,36 @@ function findBestCitiesForChargers(cities, distances, numChargers) {
         });
         return totalPackages;
     }
-    
+
+    function findMinChargers() {
+        let chargers = 0;
+        let allCities = new Set(cities);
+        let coveredCities = new Set();
+        while (coveredCities.size < cities.length) {
+            let maxCoverage = 0;
+            let bestCity = null;
+            let bestCoverage = new Set();
+
+            cities.forEach(city => {
+                const connectedCities = bfsWithin150km(graph, city);
+                let newCoverage = new Set([...connectedCities].filter(c => !coveredCities.has(c)));
+                if (newCoverage.size > maxCoverage) {
+                    maxCoverage = newCoverage.size;
+                    bestCity = city;
+                    bestCoverage = newCoverage;
+                }
+            });
+
+            if (bestCity) {
+                chargers++;
+                coveredCities = new Set([...coveredCities, ...bestCoverage]);
+            } else {
+                break;
+            }
+        }
+        return chargers;
+    }
+
     const combinations = (arr, k) => {
         let i, subI, ret = [], sub, next;
         for (i = 0; i < arr.length; i++) {
@@ -72,18 +102,23 @@ function findBestCitiesForChargers(cities, distances, numChargers) {
     const cityCombinations = combinations(cities, numChargers);
     cityCombinations.forEach(combination => {
         let connected = new Set();
+        let currentConnectedCities = {};
         combination.forEach(city => {
             const connectedCities = bfsWithin150km(graph, city);
+            currentConnectedCities[city] = Array.from(connectedCities);
             connectedCities.forEach(c => connected.add(c));
         });
         const totalPackages = calculatePackages(connected);
         if (totalPackages > maxPackages) {
             maxPackages = totalPackages;
             bestCities = combination;
+            bestConnectedCities = currentConnectedCities;
         }
     });
 
-    return { bestCities, maxPackages };
+    const minChargers = findMinChargers();
+
+    return { bestCities, maxPackages, bestConnectedCities, minChargers };
 }
 
 function drawGraph(cities, distances, bestCities) {
@@ -112,8 +147,14 @@ function drawGraph(cities, distances, bestCities) {
 
 function solve() {
     const { cities, distances, numChargers } = parseInput();
-    const { bestCities, maxPackages } = findBestCitiesForChargers(cities, distances, numChargers);
+    const { bestCities, maxPackages, bestConnectedCities, minChargers } = findBestCitiesForChargers(cities, distances, numChargers);
 
-    document.getElementById("result").innerHTML = `Best cities for chargers: ${bestCities.join(', ')}<br>Maximum packages: ${maxPackages}`;
+    let resultHTML = `Best cities for chargers: ${bestCities.join(', ')}<br>Maximum packages: ${maxPackages}<br>`;
+    bestCities.forEach(city => {
+        resultHTML += `<br>Connected cities for ${city}: ${bestConnectedCities[city].join(', ')}`;
+    });
+    resultHTML += `<br><br>Minimum necessary chargers to connect all cities: ${minChargers}`;
+
+    document.getElementById("result").innerHTML = resultHTML;
     drawGraph(cities, distances, bestCities);
 }
