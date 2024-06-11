@@ -9,11 +9,12 @@ function parseInput() {
     return { cities, distances, numChargers };
 }
 
-function buildGraph(cities, distances) {
+
+function buildGraph(cities, distances,range) {
     let graph = new Map();
     cities.forEach(city => graph.set(city, []));
     distances.forEach(({ city1, city2, distance, packages }) => {
-        if (distance <= 300) {
+        if (distance <= range) {
             graph.get(city1).push({ city: city2, distance, packages });
             graph.get(city2).push({ city: city1, distance, packages });
         }
@@ -21,14 +22,14 @@ function buildGraph(cities, distances) {
     return graph;
 }
 
-function bfsWithin150km(graph, start) {
+function bfsWithinHalfRange(graph, start,range) {
     let visited = new Set();
     let queue = [{ city: start, distance: 0 }];
     visited.add(start);
     while (queue.length > 0) {
         const { city, distance } = queue.shift();
         graph.get(city).forEach(neighbor => {
-            if (!visited.has(neighbor.city) && distance + neighbor.distance <= 150) {
+            if (!visited.has(neighbor.city) && distance + neighbor.distance <= (range/2)) {
                 queue.push({ city: neighbor.city, distance: distance + neighbor.distance });
                 visited.add(neighbor.city);
             }
@@ -37,8 +38,8 @@ function bfsWithin150km(graph, start) {
     return visited;
 }
 
-function findBestCitiesForChargers(cities, distances, numChargers) {
-    const graph = buildGraph(cities, distances);
+function findBestCitiesForChargers(cities, distances, numChargers,range) {
+    const graph = buildGraph(cities, distances,range);
     let bestCities = [];
     let maxPackages = 0;
     let bestConnectedCities = {};
@@ -63,7 +64,7 @@ function findBestCitiesForChargers(cities, distances, numChargers) {
             let bestCoverage = new Set();
 
             cities.forEach(city => {
-                const connectedCities = bfsWithin150km(graph, city);
+                const connectedCities = bfsWithinHalfRange(graph, city,range);
                 let newCoverage = new Set([...connectedCities].filter(c => !coveredCities.has(c)));
                 if (newCoverage.size > maxCoverage) {
                     maxCoverage = newCoverage.size;
@@ -104,7 +105,8 @@ function findBestCitiesForChargers(cities, distances, numChargers) {
         let connected = new Set();
         let currentConnectedCities = {};
         combination.forEach(city => {
-            const connectedCities = bfsWithin150km(graph, city);
+            console.log("range",range)
+            const connectedCities = bfsWithinHalfRange(graph, city,range);
             currentConnectedCities[city] = Array.from(connectedCities);
             connectedCities.forEach(c => connected.add(c));
         });
@@ -121,7 +123,7 @@ function findBestCitiesForChargers(cities, distances, numChargers) {
     return { bestCities, maxPackages, bestConnectedCities, minChargers };
 }
 
-function drawGraph(cities, distances, bestCities) {
+function drawGraph(cities, distances, bestCities,range) {
     const cy = cytoscape({
         container: document.getElementById('graph'),
         elements: [],
@@ -137,7 +139,7 @@ function drawGraph(cities, distances, bestCities) {
     });
 
     distances.forEach(({ city1, city2, distance, packages }) => {
-        if (distance <= 300) {
+        if (distance <= range) {
             cy.add({ group: 'edges', data: { id: `${city1}-${city2}`, source: city1, target: city2, label: `${packages} pkgs` } });
         }
     });
@@ -146,8 +148,9 @@ function drawGraph(cities, distances, bestCities) {
 }
 
 function solve() {
+    let range = document.getElementById("Range").value;
     const { cities, distances, numChargers } = parseInput();
-    const { bestCities, maxPackages, bestConnectedCities, minChargers } = findBestCitiesForChargers(cities, distances, numChargers);
+    const { bestCities, maxPackages, bestConnectedCities, minChargers } = findBestCitiesForChargers(cities, distances, numChargers,range);
 
     let resultHTML = `Best cities for chargers: ${bestCities.join(', ')}<br>Maximum packages: ${maxPackages}<br>`;
     bestCities.forEach(city => {
@@ -156,5 +159,5 @@ function solve() {
     resultHTML += `<br><br>Minimum necessary chargers to connect all cities: ${minChargers}`;
 
     document.getElementById("result").innerHTML = resultHTML;
-    drawGraph(cities, distances, bestCities);
+    drawGraph(cities, distances, bestCities,range);
 }

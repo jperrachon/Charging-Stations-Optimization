@@ -1,0 +1,173 @@
+Montevideo,Salto,496,100
+Montevideo,Paysandú,378,80
+Montevideo,Rivera,501,60
+Montevideo,Maldonado,130,120
+Montevideo,Tacuarembó,390,50
+Montevideo,Artigas,600,30
+Montevideo,Mercedes,278,90
+Montevideo,Florida,98,150
+Montevideo,Colonia,177,140
+Montevideo,Durazno,183,110
+Montevideo,Rocha,207,130
+Montevideo,Treinta y Tres,285,90
+Montevideo,Lavalleja,118,100
+Montevideo,Cerro Largo,387,50
+Montevideo,Soriano,278,80
+Montevideo,San José,90,130
+Montevideo,Canelones,46,160
+Montevideo,Flores,191,70
+Salto,Paysandú,120,70
+Salto,Rivera,332,40
+Salto,Maldonado,628,20
+Salto,Tacuarembó,280,60
+Salto,Artigas,107,50
+Salto,Mercedes,305,55
+Salto,Florida,486,15
+Salto,Colonia,420,25
+Salto,Durazno,347,30
+Salto,Rocha,573,10
+Salto,Treinta y Tres,555,20
+Salto,Lavalleja,500,25
+Salto,Cerro Largo,438,20
+Salto,Soriano,370,50
+Salto,San José,450,30
+Salto,Canelones,480,40
+Salto,Flores,380,15
+Paysandú,Rivera,336,25
+Paysandú,Maldonado,507,50
+Paysandú,Tacuarembó,262,40
+Paysandú,Artigas,228,35
+Paysandú,Mercedes,139,75
+Paysandú,Florida,312,20
+Paysandú,Colonia,291,45
+Paysandú,Durazno,240,30
+Paysandú,Rocha,470,10
+Paysandú,Treinta y Tres,442,15
+Paysandú,Lavalleja,387,20
+Paysandú,Cerro Largo,327,20
+Paysandú,Soriano,155,55
+Paysandú,San José,312,30
+Paysandú,Canelones,342,35
+Paysandú,Flores,252,15
+Rivera,Maldonado,628,15
+Rivera,Tacuarembó,188,35
+Rivera,Artigas,98,20
+Rivera,Mercedes,473,10
+Rivera,Florida,387,30
+Rivera,Colonia,490,20
+Rivera,Durazno,314,25
+Rivera,Rocha,668,5
+Rivera,Treinta y Tres,558,15
+Rivera,Lavalleja,506,20
+Rivera,Cerro Largo,376,20
+Rivera,Soriano,480,10
+Rivera,San José,470,25
+Rivera,Canelones,490,30
+Rivera,Flores,360,15
+Maldonado,Tacuarembó,440,10
+Maldonado,Artigas,600,5
+Maldonado,Mercedes,400,20
+Maldonado,Florida,200,40
+Maldonado,Colonia,231,50
+Maldonado,Durazno,313,35
+Maldonado,Rocha,100,80
+Maldonado,Treinta y Tres,167,30
+Maldonado,Lavalleja,82,50
+Maldonado,Cerro Largo,295,15
+Maldonado,Soriano,400,20
+Maldonado,San José,220,35
+Maldonado,Canelones,110,70
+Maldonado,Flores,293,15
+Tacuarembó,Artigas,176,15
+Tacuarembó,Mercedes,278,10
+Tacuarembó,Florida,232,25
+Tacuarembó,Colonia,329,20
+Tacuarembó,Durazno,139,30
+Tacuarembó,Rocha,490,5
+Tacuarembó,Treinta y Tres,400,15
+Tacuarembó,Lavalleja,338,20
+Tacuarembó,Cerro Largo,190,15
+Tacuarembó,Soriano,278,10
+Tacuarembó,San José,290,20
+Tacuarembó,Canelones,300,25
+Tacuarembó,Flores,230,15
+Artigas,Mercedes,398,10
+Artigas,Florida,477,5
+Artigas,Colonia,524,10
+Artigas,Durazno,416,15
+Artigas,Rocha,600,5
+Artigas,Treinta y Tres,570,10
+Artigas,Lavalleja,520,10
+Artigas,Cerro Largo,398,10
+Artigas,Soriano,415,10
+Artigas,San José,450,15
+Artigas,Canelones,460,15
+Artigas,Flores,370,10
+Mercedes,Florida,202,25
+Mercedes,Colonia,156,50
+Mercedes,Durazno,139,20
+Mercedes,Rocha,365,10
+Mercedes,Treinta y Tres,278,10
+Mercedes,Lavalleja,237,10
+Mercedes,Cerro Largo,357,10
+Mercedes,Soriano,30,25
+Mercedes,San José,120,40
+Mercedes,Canelones,150,50
+Mercedes,Flores,140,15
+Florida,Colonia,137,30
+Florida,Durazno,108,40
+Florida,Rocha,205,30
+Florida,Treinta y Tres,180,15
+Florida,Lavalleja,110,20
+Florida,Cerro Largo,298,10
+Florida,Soriano,202,15
+Florida,San José,68,50
+Florida,Canelones,43,80
+Florida,Flores,120,20
+Colonia,Durazno,222,20
+Colonia,Rocha,313,15
+Colonia,Treinta y Tres,300,20
+Colonia,Lavalleja,231,20
+Colonia,Cerro Largo,390,10
+Colonia,Soriano,156,25
+Colonia,San José,85,45
+Colonia,Canelones,150,70
+Colonia,Flores,150,15
+Durazno,Rocha,302,10
+Durazno,Treinta y Tres,150,20
+Durazno,Lavalleja,178,25
+Durazno,Cerro Largo,266,15
+Durazno,Soriano,139,25
+Durazno,San José,136,35
+Durazno,Canelones,147,40
+Durazno,Flores,57,30
+Rocha,Treinta y Tres,120,25
+Rocha,Lavalleja,103,35
+Rocha,Cerro Largo,220,15
+Rocha,Soriano,365,10
+Rocha,San José,290,20
+Rocha,Canelones,120,60
+Rocha,Flores,302,10
+Treinta y Tres,Lavalleja,109,25
+Treinta y Tres,Cerro Largo,139,20
+Treinta y Tres,Soriano,278,10
+Treinta y Tres,San José,250,20
+Treinta y Tres,Canelones,180,35
+Treinta y Tres,Flores,150,10
+Lavalleja,Cerro Largo,230,10
+Lavalleja,Soriano,237,10
+Lavalleja,San José,172,25
+Lavalleja,Canelones,82,40
+Lavalleja,Flores,180,10
+Cerro Largo,Soriano,357,10
+Cerro Largo,San José,290,10
+Cerro Largo,Canelones,295,20
+Cerro Largo,Flores,266,10
+Soriano,San José,145,30
+Soriano,Canelones,200,35
+Soriano,Flores,140,20
+San José,Canelones,65,70
+San José,Flores,121,15
+Canelones,Flores,157,20
+
+Montevideo, Salto, Paysandú, Rivera, Maldonado, Tacuarembó, Artigas, Mercedes, Florida, Colonia, Durazno, Rocha, Treinta y Tres, Lavalleja, Cerro Largo, Soriano, San José, Canelones, Flores
